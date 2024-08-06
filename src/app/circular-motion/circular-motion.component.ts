@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CircularMotionComponent implements OnInit {
   
 
-  names:Array<any>=["Amazon","Zid","Amazon","Noon","Salla","Salla"]
+  names:Array<any>=["Amazon","Zid","Amazon","Noon","Salla","Salla","Amazon","Zid","Amazon"]
  
 
   constructor() { }
