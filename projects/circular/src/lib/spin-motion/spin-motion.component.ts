@@ -1,31 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-circular-motion',
-  templateUrl: './circular-motion.component.html',
-  styleUrls: ['./circular-motion.component.scss']
+  selector: 'lib-spin-motion',
+  templateUrl: './spin-motion.component.html',
+  styleUrls: ['./spin-motion.component.css']
 })
-export class CircularMotionComponent implements OnInit {
+export class SpinMotionComponent implements OnInit {
   
+   
   outerWidth:any;
   innerWidth:any;
- 
-  config: any = {
-    items: ["Amazon","Zid","Amazon","Noon","Salla","Salla","antidisestablishmentarianism"],
+
+  @Input() config: any = {
+    items: ["Amazon","Zid","Amazon","Noon","Salla","Salla"],
     radius: 220,
     borderColor: 'red',
     itemsColor: 'black',
     itemsCardColor:'white',
     directionClockwise:false
   }
+
+  constructor() { }
   ngOnInit(): void {
     this.calculatewidth()
-  }
-  constructor() { }
-
-  calculatewidth(){
-    this.outerWidth=2*this.config.radius;
-    this.innerWidth=this.outerWidth-50;
   }
   getStyle(index: number): {[key: string]: string} {
     return {
@@ -34,15 +31,10 @@ export class CircularMotionComponent implements OnInit {
       ...this.calculatePosition(index)
     };
   }
- 
-  /* calculatePosition(index: number): { top: string, left: string } {
-    const angle = (index / this.names.length) * 2 * Math.PI;
-    const radius = 220;
-    const top = 200 + radius * Math.sin(angle) - 16;
-    const left = 200 + radius * Math.cos(angle) - 48;
-    return { top: `${top}px`, left: `${left}px` };
+  calculatewidth(){
+    this.outerWidth=2*this.config.radius;
+    this.innerWidth=this.outerWidth-50;
   }
-  */
   calculatePosition(index: number): { top: string, left: string } {
     debugger
     const angle = (index / this.config.items.length) * 2 * Math.PI;
@@ -51,9 +43,5 @@ export class CircularMotionComponent implements OnInit {
     const left =(this.outerWidth/2-15) + radius * Math.cos(angle) - 48;
     return { top: `${top}px`, left: `${left}px` };
   }
- 
-
- 
-
 
 }

@@ -21,7 +21,17 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "circular": [
+        "dist/circular/circular",
+        "dist/circular"
+      ],
+      "ui-controls": [
+        "dist/ui-controls/ui-controls",
+        "dist/ui-controls"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
